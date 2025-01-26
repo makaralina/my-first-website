@@ -1,16 +1,11 @@
-CREATE TABLE IF NOT EXISTS products (
+CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    price INTEGER
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
 );
 
-INSERT INTO products (title, price) VALUES
-('computer', 15000),
-('table', 2000),
-('chair', 1000),
-('pot', 300),
-('curtains', 800),
-('piano', 10000),
-('tv', 6000),
-('book', 100),
-('lamp', 300);
+INSERT INTO users (name, email, password) VALUES
+('alina', 'makaralina@gmail.com', 'malvina1234'),
+('nick', 'nikitosik@gmail.com', 'nick0987654321');
+

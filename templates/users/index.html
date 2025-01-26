@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>List of users</title>
+  </head>
+  <body>
+    <!-- {% comment %} <a href="{{ url_for('new_product') }}">Add product</a> {% endcomment %} -->
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+          <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</body>
+</html>
