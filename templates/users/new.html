@@ -1,0 +1,30 @@
+<form action="/users" method="post">
+    <div>
+        <label>
+          Name
+          <input type="name" required name="name" value="{{ user.name }}">
+        </label>
+        {% if errors['name'] %}
+          <div>{{ errors['name'] }}</div>
+        {% endif %}
+      </div>
+    <div>
+      <label>
+        Email
+        <input type="email" required name="email" value="{{ user.email }}">
+      </label>
+      {% if errors['email'] %}
+        <div>{{ errors['email'] }}</div>
+      {% endif %}
+    </div>
+    <div>
+      <label>
+        Пароль
+        <input type="password" required name="password" value="{{ user.password }}">
+      </label>
+      {% if errors['password'] %}
+        <div>{{ errors['password'] }}</div>
+      {% endif %}
+    </div>
+    <input type="submit" value="Sign Up">
+</form>

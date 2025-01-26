@@ -1,8 +1,14 @@
 from flask import (
     Flask,
     render_template,
+    redirect,
+    request,
+    flash,
+    url_for,
+    get_flashed_messages,
 )
 from my_first_website.repository import get_db, UsersRepository
+from my_first_website.validator import validate_user
 import os
 
 
@@ -24,6 +30,45 @@ def home():
 
 
 @app.route('/users')
-def products():
+def users():
     users = repo.get_entities()
-    return render_template('users/index.html', users=users)
+    messages = get_flashed_messages(with_categories=True)
+
+    return render_template(
+        'users/index.html',
+        users=users,
+        messages=messages,
+        )
+
+
+@app.route('/users', methods=['POST'])
+def create_user():
+    user_data = request.form.to_dict()
+
+    errors = validate_user(user_data)
+
+    if not errors:
+        user = user_data
+        repo.save(user)
+        flash('User has been created', 'success')
+        return redirect(url_for('users'))
+
+    return render_template(
+        'users/new.html',
+        user=user_data,
+        errors=errors
+        ), 422
+
+
+@app.route('/users/new')
+def users_new():
+    user = {'name': '',
+            'email': '',
+            'password': ''
+            }
+
+    return render_template(
+        'users/new.html',
+        user=user,
+        errors={}
+    )
