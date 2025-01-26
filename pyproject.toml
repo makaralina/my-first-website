@@ -1,4 +1,4 @@
-[project]
+[tool.poetry]
 name = "my-first-website"
 version = "0.1.0"
 description = "This is my first website"
