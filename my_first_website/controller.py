@@ -2,7 +2,7 @@ from flask import (
     Flask,
     render_template,
 )
-from repository import get_db, UsersRepository
+from my_first_website.repository import get_db, UsersRepository
 import os
 
 
