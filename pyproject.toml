@@ -1,18 +1,16 @@
 [tool.poetry]
 name = "my-first-website"
 version = "0.1.0"
-description = "This is my first website"
-authors = [
-    {name = "Alina Makarovskaya",email = "makarovskaya1307@gmail.com"}
-]
+description = "This is my first deploy"
+authors = ["Alina Makarovskaya <makarovskaya1307@gmail.com>"]
 readme = "README.md"
-requires-python = ">=3.11"
-dependencies = [
-    "flask (>=3.1.0,<4.0.0)",
-    "psycopg2-binary (>=2.9.10,<3.0.0)"
-]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^3.1.0"
+psycopg2-binary = "^2.9.10"
 
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
